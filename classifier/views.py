@@ -24,18 +24,19 @@ def index(request):
 
 @csrf_exempt
 def predict(request):
-# http://{host}/classifier
+# http://{host}/classifier/predict
     """page to load the prediction...
     """
     try:
         context = {}
-        if request.method == 'POST':
+        context['prediction'] = 'Okay you got me... I dont know that car :('
+        # no file? nothing to do here...
+        if request.method == 'POST' and 'file' in request.FILES:
+            # somehow not an image... return
             if 'image' not in request.FILES['file'].content_type:
                 return HttpResponse(status=415)
             # prediction using our network starts here...
             context['name'] = request.FILES['file'].name
-            context['prediction'] = 'Okay you got me... I dont know that car :('
-            # import pdb; pdb.set_trace()
             img = request.FILES['file'].read()
             stream = io.BytesIO(img)
             prediction, second = model.predict(stream, show_probability=True)

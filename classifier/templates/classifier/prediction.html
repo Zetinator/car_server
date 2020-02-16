@@ -5,11 +5,13 @@
 		<div class="w-auto">
             <h1 class="mb-0">Your car...
 			</h1>
-            {% if name %}
+            {% if prediction %}
             <div class="subheading mb-5">
                 <h3 class="nav-link js-scroll-trigger">{{prediction}}</h3>
             </div>
-			<p style="text-align: right">{{second}}</p>
+				{% if second %}
+					<p style="text-align: right">{{second}}</p>
+				{% endif %}
             {% endif %}
 
 			<div class="social-icons">
