@@ -1,8 +1,16 @@
+import io
+
 from django.template import loader
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.views.decorators.csrf import csrf_exempt
 
+from .network import Classifier
+from .classes import classes
+
+# initialize the network for predictions
+model = Classifier()
+model.load_checkpoint('./classifier/efficientnet_b0_e100')
 
 def index(request):
 # http://{host}/classifier
@@ -21,15 +29,18 @@ def predict(request):
     """
     try:
         context = {}
-        context['name'] = 'erick quiere mucho a su Marion :('
         if request.method == 'POST':
             if 'image' not in request.FILES['file'].content_type:
                 return HttpResponse(status=415)
             # prediction using our network starts here...
             context['name'] = request.FILES['file'].name
             context['prediction'] = 'Okay you got me... I dont know that car :('
+            # import pdb; pdb.set_trace()
             img = request.FILES['file'].read()
-            print(context)
+            stream = io.BytesIO(img)
+            prediction, second = model.predict(stream, show_probability=True)
+            context['prediction'] = prediction
+            context['second'] = second
     except Exception as e:
         raise HttpResponse(status=500)
     return render(request, 'classifier/prediction.html', context)

@@ -1,59 +1,18 @@
-{% load static %}
-<!DOCTYPE html>
-<html class="no-js" lang="es-MX">
-	<head>
-		<meta charset="utf-8">
-		<title>classifier</title>
-		<meta name="description" content="let me guess your car">
-		<meta name="author" content="Erick the Zetinator">
-		<!-- mobile specific metas -->
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<!-- CSS -->
-		<link rel="stylesheet" type="text/css" href="{% static '/classifier/css/bootstrap/bootstrap.css' %}">
-		<link rel="stylesheet" type="text/css" href="{% static '/classifier/css/main.css' %}">
-		<!-- script -->
-		<script src="{% static '/classifier/js/main.js' %}"></script>
-		<!-- favicon -->
-		<link rel="shortcut icon" href="{% static '/classifier/imgs/zetinator_logo.ico' %}" type="image/x-icon">
-		<link rel="icon" href="{% static '/classifier/imgs/zetinator_logo.ico' %}" type="image/x-icon">
-
-	</head>
-
-	<body id="top">
-		<div class="container-fluid p-0">
-
-			<section class="resume-section d-flex align-items-center" id="about">
-				<div class="w-auto">
-					<h1 class="mb-0">Let me guess...
-					</h1>
-					{% block content%}
-					<div id="upload-file">
-						<form mehod="post" enctype="multipart/form-data" action="/classifier/predict" id="demo-upload">
-							<input type="file" name="document">
-							<button type="submit">predict</button>
-
-							
-						</form>
-					</div>
-					<p class="lead mb-5">(upload a photo of a car and I'll tell you it's name)</p>
-					{% if name %}
-					<div class="subheading mb-5">
-						your car is...<span class="text-primary">{{name}}</span>
-					</div>
-					{% endif %}
-					{% endblock%}
-
-				</div>
-			</section>
+{% extends 'classifier/base.html' %}
+{% block content %}
+<div class="container-fluid p-0">
+	<section class="resume-section d-flex align-items-center" id="about">
+		<div class="w-auto">
+			<h1 class="mb-0">Let me guess...
+			</h1>
+			<div id="upload">
+				<form method="post" enctype="multipart/form-data" action="/classifier/predict">
+					<input type="file" name="file">
+					<button type="submit">predict</button>
+				</form>
+			</div>
+			<p class="lead mb-5">(upload a photo of a car and I'll try to guess it's name)</p>
 		</div>
-		<!-- Bootstrap core JavaScript -->
-		<script src="{% static '/classifier/js/jquery/jquery.min.js' %}"></script>
-		<script src="{% static '/classifier/js/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-
-		<!-- Plugin JavaScript -->
-		<script src="{% static '/classifier/js/jquery/jquery.easing.min.js' %}"></script>
-
-		<!-- Custom scripts for this template -->
-		<script src="{% static 'js/resume.js' %}"></script>
-
-	</body>
+	</section>
+</div>
+{% endblock%}

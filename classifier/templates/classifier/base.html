@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html class="no-js" lang="es-MX">
+	<head>
+		<meta charset="utf-8">
+		<title>classifier</title>
+		<meta name="description" content="let me guess your car">
+		<meta name="author" content="Erick the Zetinator">
+		<!-- mobile specific metas -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<!-- CSS -->
+		<link rel="stylesheet" type="text/css" href="{% static '/classifier/css/bootstrap/bootstrap.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static '/classifier/css/main.css' %}">
+		<!-- script -->
+		<script src="{% static '/classifier/js/main.js' %}"></script>
+		<!-- favicon -->
+		<link rel="shortcut icon" href="{% static '/classifier/imgs/zetinator_logo.ico' %}" type="image/x-icon">
+		<link rel="icon" href="{% static '/classifier/imgs/zetinator_logo.ico' %}" type="image/x-icon">
+
+    </head>
+    {% block content %}
+    {% endblock%}
+    <body id="top">
+		<!-- Bootstrap core JavaScript -->
+		<script src="{% static '/classifier/js/jquery/jquery.min.js' %}"></script>
+		<script src="{% static '/classifier/js/bootstrap/bootstrap.bundle.min.js' %}"></script>
+
+		<!-- Plugin JavaScript -->
+		<script src="{% static '/classifier/js/jquery/jquery.easing.min.js' %}"></script>
+
+	</body>
