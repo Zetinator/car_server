@@ -9,6 +9,7 @@
 		<!-- mobile specific metas -->
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<!-- CSS -->
+		<link rel="stylesheet" type="text/css" href="{% static '/classifier/css/bootstrap/bootstrap.css' %}">
 		<link rel="stylesheet" type="text/css" href="{% static '/classifier/css/main.css' %}">
 		<link rel="stylesheet" type="text/css" href="{% static '/classifier/css/dropzone/dropzone.css' %}">
 		<!-- script -->
@@ -23,8 +24,8 @@
 	<body id="top">
 		<div class="container-fluid p-0">
 
-			<section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="about">
-				<div class="w-100">
+			<section class="resume-section d-flex align-items-center" id="about">
+				<div class="w-auto">
 					<h1 class="mb-0">Let me guess...
 					</h1>
 					<div id="dropzone">
@@ -35,7 +36,7 @@
 					  
 					  	</form>
 					</div>
-					<p class="lead mb-5">Upload a photo of a car that you like and I'll tell you it's name.</p>
+					<p class="lead mb-5">(upload a photo of a car that you like and I'll tell you it's name)</p>
 					</p>
 
 					<div class="subheading mb-5">your car is...
