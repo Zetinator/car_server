@@ -196,69 +196,6 @@ a:hover, a:focus, a:active {
   color: #824027;
 }
 
-/* -------------------------------------------------------------------
- * ## video button
- * ------------------------------------------------------------------- */
-.btn-video {
-  display: inline-block;
-  text-align: center;
-  outline: none;
-  position: absolute;
-  padding-left: 10px;
-  /* bottom: 10%; */
-  /* left: calc(70% + 200px - 45px); */
-  /* left: 90%; */
-}
-
-.btn-video::after {
-  display: inline-block;
-  display: none;
-  content: "Watch Video";
-  font-size: 12px;
-  font-weight: 600;
-  color: #DBDBDB;
-  text-transform: uppercase;
-  letter-spacing: 4px;
-  line-height: 90px;
-  padding-left: 16px;
-  vertical-align: top;
-  -webkit-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
-}
-
-@keyframes shadow-pulse
-{
-  0% {
-    box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.2);
-  }
-  100% {
-    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
-  }
-}
-
-.video-icon {
-  display: inline-block;
-  height: 4.3rem;
-  width: 4.3rem;
-  border-radius: 50%;
-  background-color: #DBDBDB;
-  background-image: url(../img/icons/icon-play-black.svg);
-  background-repeat: no-repeat;
-  background-position: 55% center;
-  background-size: 24px 27px;
-  -webkit-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
-  animation: shadow-pulse 1s infinite;
-}
-
-.btn-video:hover::after {
-  color: #0090B0;
-}
-
-.btn-video:hover .video-icon {
-  background-color: #0090B0;
-  background-image: url(../img/icons/icon-play.svg);
-}
 
 /* ===================================================================
  * # buttons
