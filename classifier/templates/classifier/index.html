@@ -28,19 +28,22 @@
 				<div class="w-auto">
 					<h1 class="mb-0">Let me guess...
 					</h1>
+					{% block content%}
 					<div id="dropzone">
-						<form action="/classifier/predict" class="dropzone needsclick dz-clickable" id="demo-upload">
+						<form mehod="post" enctype="multipart/form-data" action="/classifier/predict" class="dropzone needsclick dz-clickable" id="demo-upload">
 							<div class="dz-message needsclick">
-						  	<button type="button" class="dz-button">Drop files here or click to upload</button><br>
-						</div>
-					  
-					  	</form>
+								<button type="button" class="dz-button">Drop files here or click to upload</button><br>
+							</div>
+							
+						</form>
 					</div>
-					<p class="lead mb-5">(upload a photo of a car that you like and I'll tell you it's name)</p>
-					</p>
-
-					<div class="subheading mb-5">your car is...
+					<p class="lead mb-5">(upload a photo of a car and I'll tell you it's name)</p>
+					{% if name %}
+					<div class="subheading mb-5">
+						your car is...<span class="text-primary">{{name}}</span>
 					</div>
+					{% endif %}
+					{% endblock%}
 
 				</div>
 			</section>
