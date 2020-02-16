@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.views.decorators.csrf import csrf_exempt
 
+
 def index(request):
 # http://{host}/classifier
     """page to drop the car pictures...
