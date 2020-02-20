@@ -1,36 +1,32 @@
 {% extends 'classifier/base.html' %}
 {% block content %}
-<div class="container-fluid p-0">
-	<section class="resume-section d-flex align-items-center" id="about">
-		<div class="w-auto">
-            <h1 class="mb-0">Your car...
-			</h1>
-            {% if prediction %}
-            <div class="subheading mb-5">
-                <h3 class="nav-link js-scroll-trigger">{{prediction}}</h3>
-            </div>
-				{% if second %}
-					<p style="text-align: right">{{second}}</p>
-				{% endif %}
-            {% endif %}
+<div class="container">
+	<h1 class="mb-0">Your car is...
+	</h1>
+	{% if prediction %}
+	<div class="prediction">
+		<h2>{{prediction}}</h3>
+	</div>
+		{% if second %}
+		<p class="lead right">{{second}}</p>
+		{% endif %}
+	{% endif %}
 
-			<div class="social-icons">
-				<a href="https://www.linkedin.com/in/erick-zetina-b922a2173/" target="_blank">
-					<i class="fab fa-linkedin-in"></i>
-				</a>
-				<a href="https://github.com/Zetinator" target="_blank">
-					<i class="fab fa-github"></i>
-				</a>
-				<a href="https://www.facebook.com/zetinator" target="_blank">
-					<i class="fab fa-facebook-f"></i>
-				</a>
-				<a href="https://wa.me/491631932340" target="_blank">
-					<i class="fab fa-whatsapp"></i>
-				</a>
-			</div>
+	<div class="social-icons">
+		<a href="https://www.linkedin.com/in/erick-zetina-b922a2173/" target="_blank">
+			<i class="fab fa-linkedin-in"></i>
+		</a>
+		<a href="https://github.com/Zetinator" target="_blank">
+			<i class="fab fa-github"></i>
+		</a>
+		<a href="https://www.facebook.com/zetinator" target="_blank">
+			<i class="fab fa-facebook-f"></i>
+		</a>
+		<a href="https://wa.me/491631932340" target="_blank">
+			<i class="fab fa-whatsapp"></i>
+		</a>
+	</div>
 
-		</div>
-	</section>
 </div>
 
 {% endblock%}
